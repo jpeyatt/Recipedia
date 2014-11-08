@@ -1,0 +1,24 @@
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h4>Recipes</h4>
+    </div>
+        <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Serving Size</th>
+                    <th>Ready In</th>
+                </tr>
+                </thead>
+
+            <tbody>
+            <tr ng-repeat="recipe in vm.recipes">
+                <!-- This ui-sref links to the recipeDetail State (in app.js) and passes through the current id for the recipe -->
+                <td><a ui-sref="recipeDetail({id: recipe.id})">{{recipe.name}}</a></td>
+                <td>{{recipe.servings}}</td>
+                <td>{{recipe.prepTime + recipe.cookTime}} Minutes</td>
+            </tr>
+            </tbody>
+        </table>
+
+</div>
