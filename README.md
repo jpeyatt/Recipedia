@@ -1,4 +1,6 @@
 Recipedia
 =========
 
-This app is built for Angularjs practice and demonstration by Justin Peyatt.
+This app's purpose is for Angularjs practice and demonstration.
+
+Built by Justin Peyatt.
