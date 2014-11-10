@@ -1,0 +1,113 @@
+<style>
+    .recipeDetailPanel .panel-body {
+        padding: 30px 40px 10px 40px;
+    }
+
+    .recipeDetailPanel .panel-heading h3 {
+        padding: 6px;
+        margin: 0;
+    }
+
+
+
+    .recipeDetailPanel .row h3 {
+        padding-bottom: 8px;
+    }
+
+    .recipeDetailPanel ul {
+        padding-left: 18px;
+    }
+
+    .recipeDetailPanel ul li {
+        margin-bottom: 10px;
+    }
+
+    .recipe-img {
+        margin-bottom: 14px;
+    }
+    .SecondRow {
+        margin-top: 25px;
+    }
+    .recipeDetailHdr{
+        margin-top: 0;
+    }
+    .recipe-addinfo{
+        margin-bottom: 8px;
+    }
+</style>
+<div class="panel panel-success recipeDetailPanel">
+    <div class="panel-heading"><h3>{{vm.title}}</h3></div>
+    <div class="panel-body">
+
+        <!-- Top Row -->
+        <div class="row">
+
+            <!-- Picture -->
+            <div class="col-md-4">
+                <div class="row img-thumbnail recipe-img">
+                    <img ng-src="{{vm.recipe.image}}"/>
+                </div>
+                <input id="recipe-rating" class="rating" data-show-clear="false" data-readonly="true" value="4.5" data-size="xs" />
+                <span><a  ui-sref="recipeDetail.reviews">Read Reviews ({{vm.recipe.reviews.length}})</a></span>
+            </div>
+
+            <!-- Ingredients -->
+            <div class="col-md-4">
+                <div class="row">
+                    <h3 class="recipeDetailHdr">Ingredients</h3>
+                    <ul>
+                        <li ng-repeat="ingredient in vm.recipe.ingredients">{{ingredient}}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <h3 class="recipeDetailHdr">Additional Info</h3>
+                <div class="row recipe-addinfo">
+                    <div class="col-md-4">Serving Size:</div>
+                    <div class="col-md-8">{{vm.recipe.servings}}</div>
+                </div>
+                <div class="row recipe-addinfo">
+                    <div class="col-md-4">Prep Time:</div>
+                    <div class="col-md-8">{{vm.recipe.prepTime}}</div>
+                </div>
+                <div class="row recipe-addinfo">
+                    <div class="col-md-4">Cook Time:</div>
+                    <div class="col-md-8">{{vm.recipe.cookTime}}</div>
+                </div>
+                <div class="row recipe-addinfo">
+                    <div class="col-md-4">Ready in:</div>
+                    <div class="col-md-8">{{vm.recipe.prepTime + vm.recipe.cookTime}} Minutes</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 2nd Row -->
+        <div class="row SecondRow">
+
+            <!-- Directions-->
+            <div class=".col-md-4">
+                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h3 class="recipeDetailHdr">Directions</h3>
+                            <ul>
+                                <li ng-repeat="direction in vm.recipe.directions">{{direction}}</li>
+                            </ul>
+                            <br>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a ui-sref="recipeList" class="btn btn-success">Back to List</a>
+    </div>
+</div>
+<script>
+    $("#recipe-rating").rating();
+</script>

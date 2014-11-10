@@ -1,0 +1,48 @@
+<style>
+    .recipeDetailPanel .panel-heading h3 {
+        padding: 6px;
+        margin: 0;
+    }
+    .reviewBody{
+        padding: 10px 20px 5px 20px;
+    }
+    .reviewInfo{
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .reviewDivider {
+        margin-top: 8px;
+        margin-bottom: 0;
+    }
+</style>
+
+<div class="panel panel-success recipeDetailPanel">
+    <div class="panel-heading"><h3>{{vm.title}} Reviews</h3></div>
+    <div class="panel-body">
+
+        <div class="panel panel-default" ng-repeat="review in vm.recipe.reviews">
+
+            <!-- Review -->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-8 reviewInfo">
+                        <div class="col-md-4">Reviewer: {{review.user}}</div>
+                        <div class="col-md-4">Added: {{review.date}}</div>
+                        <div class="col-md-4">Rating: {{review.rating}}</div>
+
+                    </div>
+
+                </div>
+                <hr class="reviewDivider">
+                <div class="row reviewBody">{{review.body}}</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="panel-footer">
+        <a  ui-sref="recipeDetail.info({id: vm.recipe.id})" class="btn btn-success">Back to Recipe</a>
+    </div>
+</div>
+<script>
+    $("#recipe-rating").rating();
+</script>

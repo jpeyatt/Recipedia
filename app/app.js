@@ -25,6 +25,7 @@
                         controller: "RecipeEditController as vm"
                     })
                     .state("recipeDetail", {
+                        abstract: true,
                         url: "/recipes/:id",
                         templateUrl: "app/recipes/recipeDetailView.html",
                         controller: "RecipeDetailController as vm",
@@ -36,6 +37,14 @@
                                 return recipeResource.get({id: id}).$promise;
                             }
                         }
+                    })
+                    .state("recipeDetail.info", {
+                        url: "/info",
+                        templateUrl: "app/recipes/recipeDetailInfoView.html"
+                    })
+                    .state("recipeDetail.reviews", {
+                        url: "/reviews",
+                        templateUrl: "app/recipes/recipeReviewView.html"
                     })
             }]
     );

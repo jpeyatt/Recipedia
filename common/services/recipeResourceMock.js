@@ -194,7 +194,6 @@
         // When there is a GET request on the recipeUrl(defined above, and in recipeResource) respond with the entire array of recipes (hard-coded above)
         $httpBackend.whenGET(recipeUrl).respond(recipes);
 
-
         var editingRegex = new RegExp(recipeUrl + "/[0-9][0-9]*", '');
         $httpBackend.whenGET(editingRegex).respond(function (method, url, data) {
             var recipe = {"id": 0};
